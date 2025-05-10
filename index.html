@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jegan Baskar - Professional Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Updated CSS for enhanced responsiveness and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0; /* Reset default body margin */
+        }
+        .container {
+            max-width: 100%; /* Use full width initially */
+            padding: 2rem;
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin: auto; /* Center the container */
+        }
+        @media (min-width: 640px) {
+            .container {
+                max-width: 800px; /* Restore max-width for larger screens */
+            }
+        }
+        .heading-underline {
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            display: inline-block;
+            border-bottom: 2px solid #6b7280;
+            padding-bottom: 0.25rem;
+        }
+        .project-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition for more pronounced effect */
+        }
+        .project-card:hover {
+            transform: translateY(-0.75rem); /* Increased hover effect */
+            box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.15), 0 4px 9px -2px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+        }
+        .skill-badge {
+            background-color: #e0f2fe;
+            color: #0b5394;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            font-size: 0.875rem;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform */
+        }
+        .skill-badge:hover {
+            background-color: #d1d8f3; /* Slightly lighter on hover */
+            transform: scale(1.1);  /* Enlarge on hover */
+        }
+        .contact-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform */
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        .contact-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05); /* Slight enlargement on hover */
+        }
+        #photo-download {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        #profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease; /* Added transform */
+        }
+        #profile-photo:hover {
+            transform: scale(1.1); /* Slight enlargement on hover */
+        }
+
+        #download-cv {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform */
+            text-decoration: none;
+        }
+        #download-cv:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .animation-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        .animation-slide-in {
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(-20px);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        /* Responsive adjustments using media queries */
+        @media (max-width: 768px) { /* Medium screens and below (md breakpoint in Tailwind is 768px) */
+            .container {
+                padding: 1.5rem; /* Reduced padding on smaller screens */
+            }
+            .section-title {
+                font-size: 1.75rem; /* Slightly smaller title on medium screens */
+            }
+            .project-card {
+                padding: 1rem; /* Reduced padding for project cards on smaller screens */
+            }
+            .skill-badge {
+                font-size: 0.75rem; /* Smaller skill badge text */
+                padding: 0.5rem 0.75rem;
+            }
+            #profile-photo {
+                width: 150px; /* Smaller photo on medium screens */
+                height: 150px;
+            }
+        }
+        @media (max-width: 640px) { /* Small screens and below (sm breakpoint in Tailwind is 640px) */
+            .container {
+                padding: 1rem; /* Further reduced padding on small screens */
+            }
+            .section-title {
+                font-size: 1.5rem; /* Smaller title on small screens */
+            }
+            .project-card {
+                padding: 0.75rem; /* Even less padding on project cards */
+            }
+            .skill-badge {
+                font-size: 0.6rem; /* Even smaller skill badge text */
+                padding: 0.4rem 0.6rem;
+            }
+            #photo-download {
+                flex-direction: column; /* Stack photo and button on small screens */
+                align-items: center;
+            }
+            #profile-photo {
+                width: 120px; /* Smaller photo on small screens */
+                height: 120px;
+            }
+            #download-cv {
+                margin-top: 1rem; /* Add space between button and photo on small screens */
+                font-size: 0.9rem;
+            }
+            .contact-button{
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container animation-fade-in">
+        <header class="text-center py-8">
+            <h1 class="text-3xl font-semibold text-gray-800">JEGAN BASKAR</h1>
+            <p class="text-gray-600">Full Stack Developer</p>
+        </header>
+
+        <section id="photo-download" class="text-center">
+            <img id="profile-photo" src="jegan blazer.jpg" alt="Jegan Baskar">
+            <a id="download-cv" href="Jegan B.pdf.pdf">Download CV <i class="fas fa-download"></i></a>
+        </section>
+
+        <section id="career-objective" class="py-6 animation-slide-in">
+            <h2 class="section-title">Career Objective</h2>
+            <p class="text-gray-700 leading-relaxed">
+                As a passionate and driven Full Stack Developer with a strong foundation in HTML, CSS, JavaScript, and
+                modern frameworks like React and Angular, I aim to bring creativity and precision to web development
+                projects. With hands-on experience in building responsive, user-centric applications and a growing interest in
+                emerging technologies like Generative Al and RPA, I am eager to join a dynamic team where I can contribute
+                to impactful solutions while continuously learning and evolving as a developer.
+            </p>
+        </section>
+
+        <section id="internships-projects" class="py-6">
+            <h2 class="section-title">Internships & Projects</h2>
+            <div class="project-card">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">ROBOTIC PROCESS AUTOMATION(RPA), DIGITAL GARAGE.</h3>
+                <p class="text-gray-600 mb-2">Aug 2024-Sept 2024</p>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>I have gained hands-on experience with RPA tools such as UiPath and Automation
+                        Anywhere, learning to automate repetitive tasks and business processes.</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>DEVELOPED PROJECT: Language Translator chatbot</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">ANDROID DEVELOPMENT INTERN, COGNIFYZ TECHNOLOGIES.</h3>
+                <p class="text-gray-600 mb-2">Feb 2025- Mar 2025</p>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Worked closely with senior developers to design, develop, and test various app features,
+                        ensuring they were user-friendly and high-performing.</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>DEVELOPED PROJECT: Interactive and Responsive application.</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">FRONTEND WEB DEVELOPMENT, CODTECH IT SOLUTIONS PVT.LTD</h3>
+                <p class="text-gray-600 mb-2">Mar 2025 - Apr 2025</p>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Gained a strong understanding of core technologies such as HTML, CSS, and JavaScript,
+                        and how to effectively use them to build responsive, interactive websites.</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>DEVELOPED PROJECT: E-Commerce website.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education" class="py-6">
+            <h2 class="section-title">Education</h2>
+            <div class="mb-4">
+                <h3 class="text-lg font-semibold text-gray-800"><i class="fas fa-university text-blue-500 mr-2"></i>Arjun College Of Technology, Coimbatore</h3>
+                <p class="text-gray-600"><i class="fas fa-graduation-cap text-blue-500 mr-2"></i>B.E (Computer Science and Engineering)</p>
+                <p class="text-gray-600"><i class="fas fa-percentage text-blue-500 mr-2"></i>CGPA: 7.5</p>
+                <p class="text-gray-600"><i class="fas fa-calendar-alt text-blue-500 mr-2"></i>Aug 2021-Apr 2025</p>
+            </div>
+            <div class="mb-4">
+                <h3 class="text-lg font-semibold text-gray-800"><i class="fas fa-university text-blue-500 mr-2"></i>AKT Academy Matric Higher Secondary School, Kallakurichi.</h3>
+                <p class="text-gray-600"><i class="fas fa-graduation-cap text-blue-500 mr-2"></i>Higher Secondary Certificate (HSC)</p>
+                <p class="text-gray-600"><i class="fas fa-percentage text-blue-500 mr-2"></i>Percentage: 90%</p>
+                <p class="text-gray-600"><i class="fas fa-calendar-alt text-blue-500 mr-2"></i>Jun 2019-May 2021</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-gray-800"><i class="fas fa-university text-blue-500 mr-2"></i>AKT Memorial High School, Kallakurichi.</h3>
+                <p class="text-gray-600"><i class="fas fa-graduation-cap text-blue-500 mr-2"></i>Secondary School Leaving Certificate (SSLC)</p>
+                <p class="text-gray-600"><i class="fas fa-percentage text-blue-500 mr-2"></i>Percentage: 92%</p>
+                <p class="text-gray-600"><i class="fas fa-calendar-alt text-blue-500 mr-2"></i>Jun 2018-May 2019</p>
+            </div>
+        </section>
+
+        <section id="certifications" class="py-6">
+            <h2 class="section-title">Certifications</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><i class="fas fa-certificate text-yellow-500 mr-2"></i>Great Learning: Java (Intermediate).</li>
+                <li><i class="fas fa-certificate text-yellow-500 mr-2"></i>Simpliearn: Python, Angular Js, React Js.</li>
+                <li><i class="fas fa-certificate text-yellow-500 mr-2"></i>OfficeMaster: PowerBI</li>
+                <li><i class="fas fa-certificate text-yellow-500 mr-2"></i>Microsoft: Generative Al</li>
+                <li><i class="fas fa-certificate text-yellow-500 mr-2"></i>Nxt wave: Generative Al Model</li>
+            </ul>
+        </section>
+
+        <section id="skills" class="py-6">
+            <h2 class="section-title">Skills</h2>
+            <div class="mb-4">
+                <h3 class="text-md font-semibold text-gray-700 mb-2">General Skills</h3>
+                <div>
+                    <span class="skill-badge"><i class="fas fa-users text-blue-500 mr-1"></i>Communication Skills</span>
+                    <span class="skill-badge"><i class="fas fa-wrench text-blue-500 mr-1"></i>Problem Solving</span>
+                    <span class="skill-badge"><i class="fas fa-exclamation-triangle text-blue-500 mr-1"></i>Risk Management</span>
+                    <span class="skill-badge"><i class="fas fa-people-group text-blue-500 mr-1"></i>Teamwork</span>
+                    <span class="skill-badge"><i class="fas fa-chalkboard-teacher text-blue-500 mr-1"></i>Presentation Skills</span>
+                    <span class="skill-badge"><i class="fas fa-brain text-blue-500 mr-1"></i>Critical Thinking</span>
+                    <span class="skill-badge"><i class="fas fa-crown text-blue-500 mr-1"></i>Leadership</span>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-md font-semibold text-gray-700 mb-2">Technical Skills</h3>
+                 <div>
+                    <span class="skill-badge"><i class="fas fa-code text-green-500 mr-1"></i>Frontend: HTML</span>
+                    <span class="skill-badge"><i class="fas fa-code text-green-500 mr-1"></i>CSS</span>
+                    <span class="skill-badge"><i class="fas fa-code text-green-500 mr-1"></i>Javascript</span>
+                    <span class="skill-badge"><i class="fas fa-laptop-code text-green-500 mr-1"></i>Framework: React.js</span>
+                    <span class="skill-badge"><i class="fas fa-laptop-code text-green-500 mr-1"></i>Angular.js</span>
+                    <span class="skill-badge"><i class="fas fa-server text-green-500 mr-1"></i>Backend: Python</span>
+                    <span class="skill-badge"><i class="fas fa-server text-green-500 mr-1"></i>Node.js</span>
+                    <span class="skill-badge"><i class="fas fa-database text-green-500 mr-1"></i>Database: MySQL</span>
+                    <span class="skill-badge"><i class="fas fa-code-branch text-green-500 mr-1"></i>Sourcecode Management: GitHub</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages" class="py-6">
+            <h2 class="section-title">Languages</h2>
+             <div>
+                <span class="skill-badge"><i class="fas fa-globe-americas text-purple-500 mr-1"></i>TAMIL-(READ & WRITE FLUENTLY)</span>
+                <span class="skill-badge"><i class="fas fa-globe-americas text-purple-500 mr-1"></i>ENGLISH-(READ&WRITE FLUENTLY)</span>
+            </div>
+        </section>
+
+        <section id="responsibilities" class="py-6">
+            <h2 class="section-title">Responsibilities</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><i class="fas fa-user-graduate text-indigo-500 mr-2"></i>National Cadet Corps (NCC) Candidate in School academics.</li>
+                <li><i class="fas fa-hand-holding-heart text-indigo-500 mr-2"></i>Youth Red Cross (YRC) Chairman in College academics.</li>
+            </ul>
+        </section>
+
+        <section id="self-declaration" class="py-6">
+            <h2 class="section-title">Self Declaration</h2>
+            <p class="text-gray-700">
+                I hereby declare that all the information given above is true and correct to the best of my knowledge.
+            </p>
+            <p class="text-gray-700 mt-4">
+                Date: <br>
+                Place: <br>
+                Jegan Baskar
+            </p>
+        </section>
+
+        <footer class="py-8 text-center">
+            <a href="#" class="contact-button"><i class="fas fa-envelope mr-2"></i>Contact Me</a>
+        </footer>
+    </div>
+</body>
+</html>
